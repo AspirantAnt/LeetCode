@@ -10,6 +10,7 @@ public:
     vector<vector<int>> subsetsWithDup(vector<int> &nums)
     {
         vector<vector<int>> result = {{}};
+        sort(nums.begin(), nums.end());
         int len = nums.size();
         if (len == 0)
         {
@@ -27,8 +28,7 @@ public:
                 // 每个都加nums[n]
                 vector<int> tmp = *index;
                 // 排下序
-                tmp.insert(tmp.begin(), nums[n]);
-                sort(tmp.begin(), tmp.end());
+                tmp.insert(tmp.end(), nums[n]);
                 pre_result.insert(tmp);
             }
         }
